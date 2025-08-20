@@ -1,13 +1,13 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 
 export default function Home() {
   // Services data - exactly from your HTML
-  const services = [
+  const services = useMemo(() => [
     {
-      title: "Customer Identity & Access Management",
+      title: "KKKKKKKKCustomer Identity & Access Management",
       description: "We engineer secure, scalable customer identity platforms with a focus on automation and advanced deployment strategies.",
       features: [
         { name: "Advanced CI/CD Pipelines with Automated Product Deployment" },
@@ -74,90 +74,86 @@ export default function Home() {
       iconGradient: "from-yellow-500 to-amber-600",
       iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>`
     }
-  ];
+  ], []);
 
-  // Platform categories data - exactly from your HTML
-  const platformCategories = [
-    {
-      platforms: [
-        { name: "ForgeRock", logo: "/images/ping.png" },
-        { name: "Okta", logo: "/images/okta.png" },
-        { name: "Entra ID", logo: "/images/Microsoft-entraid.png" },
-        { name: "IBM Security Verify", logo: "/images/IBM.png" }
-      ]
-    },
-    {
-      platforms: [
-        { name: "SailPoint", logo: "/images/sailpoint.png" },
-        { name: "Saviynt", logo: "/images/saviynt.jpeg" },
-        { name: "One Identity", logo: "/images/one-ideneity.png" },
-        { name: "Keycloak", logo: "/images/keycloak.png" }
-      ]
-    },
-    {
-      platforms: [
-        { name: "CyberArk", logo: "/images/cyberark.png" },
-        { name: "BeyondTrust", logo: "/images/beyondtrust.png" },
-        { name: "Delinea", logo: "/images/delinea.jpeg" },
-        { name: "Arcon", logo: "/images/arcon.png" }
-      ]
-    }
-  ];
+  // Flatten all platforms into a single array for smooth auto-scroll
+  const allPlatforms = useMemo(() => [
+    { name: "ForgeRock", logo: "/images/ping.png" },
+    { name: "Okta", logo: "/images/okta.png" },
+    { name: "Entra ID", logo: "/images/Microsoft-entraid.png" },
+    { name: "IBM Security Verify", logo: "/images/IBM.png" },
+    { name: "SailPoint", logo: "/images/sailpoint.png" },
+    { name: "Saviynt", logo: "/images/saviynt.jpeg" },
+    { name: "One Identity", logo: "/images/one-ideneity.png" },
+    { name: "Keycloak", logo: "/images/keycloak.png" },
+    { name: "CyberArk", logo: "/images/cyberark.png" },
+    { name: "BeyondTrust", logo: "/images/beyondtrust.png" },
+    { name: "Delinea", logo: "/images/delinea.jpeg" },
+    { name: "Arcon", logo: "/images/arcon.png" }
+  ], []);
 
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
   const [currentPlatformIndex, setCurrentPlatformIndex] = useState(0);
-  const serviceAutoScrollRef = useRef(null);
-  const platformAutoScrollRef = useRef(null);
-
-  const startServiceAutoScroll = useCallback(() => {
-    if (serviceAutoScrollRef.current) {
-      clearInterval(serviceAutoScrollRef.current);
+  const platformIndexRef = useRef(0);
+  const platformIntervalRef = useRef(null);
+  const groupCount = Math.max(1, Math.ceil(allPlatforms.length / 4));
+  // Our Services auto-scroll every 5 seconds (using requestAnimationFrame)
+  useEffect(() => {
+    let frameId;
+    let lastTime = performance.now();
+    function tick(now) {
+      if (now - lastTime >= 5000) {
+        setCurrentServiceIndex(prev => (prev + 1) % services.length);
+        lastTime = now;
+      }
+      frameId = requestAnimationFrame(tick);
     }
-    serviceAutoScrollRef.current = setInterval(() => {
-      setCurrentServiceIndex(prev => (prev + 1) % services.length);
-    }, 20000);
+    frameId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frameId);
   }, [services.length]);
 
-  const startPlatformAutoScroll = useCallback(() => {
-    if (platformAutoScrollRef.current) {
-      clearInterval(platformAutoScrollRef.current);
+  // Technology Partners auto-scroll every 2 seconds (scrolls by 4)
+  // Technology Partners auto-scroll every 2 seconds (using requestAnimationFrame)
+  useEffect(() => {
+    setCurrentPlatformIndex(0);
+    platformIndexRef.current = 0;
+    let frameId;
+    let lastTime = performance.now();
+    function tick(now) {
+      const latestGroupCount = Math.max(1, Math.ceil(allPlatforms.length / 4));
+      if (now - lastTime >= 2000) {
+        platformIndexRef.current = (platformIndexRef.current + 1) % latestGroupCount;
+        setCurrentPlatformIndex(platformIndexRef.current);
+        console.log('Technology Partners scroll', new Date().toLocaleTimeString(), 'index:', platformIndexRef.current, 'groupCount:', latestGroupCount);
+        lastTime = now;
+      }
+      frameId = requestAnimationFrame(tick);
     }
-    platformAutoScrollRef.current = setInterval(() => {
-      setCurrentPlatformIndex(prev => (prev + 1) % platformCategories.length);
-    }, 25000);
-  }, [platformCategories.length]);
+    frameId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frameId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const nextService = () => {
     setCurrentServiceIndex(prev => (prev + 1) % services.length);
-    startServiceAutoScroll();
   };
 
   const prevService = () => {
     setCurrentServiceIndex(prev => (prev - 1 + services.length) % services.length);
-    startServiceAutoScroll();
   };
 
   const nextPlatform = () => {
-    setCurrentPlatformIndex(prev => (prev + 1) % platformCategories.length);
-    startPlatformAutoScroll();
+    setCurrentPlatformIndex(prev => ((prev + 1) % groupCount));
   };
 
   const prevPlatform = () => {
-    setCurrentPlatformIndex(prev => (prev - 1 + platformCategories.length) % platformCategories.length);
-    startPlatformAutoScroll();
+    setCurrentPlatformIndex(prev => ((prev - 1 + groupCount) % groupCount));
   };
 
-  useEffect(() => {
-    startServiceAutoScroll();
-    startPlatformAutoScroll();
-    return () => {
-      if (serviceAutoScrollRef.current) clearInterval(serviceAutoScrollRef.current);
-      if (platformAutoScrollRef.current) clearInterval(platformAutoScrollRef.current);
-    };
-  }, [startServiceAutoScroll, startPlatformAutoScroll]);
-
   const currentService = services[currentServiceIndex];
-  const currentPlatformCategory = platformCategories[currentPlatformIndex];
+  // Clamp index and always render a valid array
+  const safeIndex = Math.max(0, Math.min(currentPlatformIndex, groupCount - 1));
+  const currentPlatforms = allPlatforms.slice(safeIndex * 4, safeIndex * 4 + 4);
 
   return (
     <>
@@ -173,7 +169,7 @@ export default function Home() {
         {/* Navigation Bar */}
         <nav className="bg-gradient-to-r from-white via-blue-50 to-cyan-50 shadow-xl sticky top-0 z-50 backdrop-blur-sm border-b border-cyan-100">
           <div className="container mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
-            <Link href="/">
+            <Link href="/" legacyBehavior>
               <a className="text-gray-800 text-xl md:text-2xl font-bold mb-2 md:mb-0 group">
                 <div className="flex items-center">
                   <Image 
@@ -189,7 +185,7 @@ export default function Home() {
             </Link>
             
             <div className="flex space-x-6">
-              <Link href="/">
+              <Link href="/" legacyBehavior>
                 <a className="relative px-4 py-2 text-cyan-600 transition-all font-medium group border-b-2 border-cyan-500">
                   <span className="relative z-10">Home</span>
                 </a>
@@ -212,10 +208,12 @@ export default function Home() {
                     <span className="text-cyan-600 mr-3">📚</span>
                     <div className="font-medium">Custom SDK&apos;s</div>
                   </a>
-                  <a href="#ai-generator" className="dropdown-item-professional">
-                    <span className="text-purple-600 mr-3">🤖</span>
-                    <div className="font-medium">AI Code Generator</div>
-                  </a>
+                  <Link href="/ai-code-generator/" legacyBehavior>
+                    <a className="dropdown-item-professional">
+                      <span className="text-purple-600 mr-3">🤖</span>
+                      <div className="font-medium">AI Code Generator</div>
+                    </a>
+                  </Link>
                   <a href="#migration" className="dropdown-item-professional">
                     <span className="text-green-600 mr-3">🔄</span>
                     <div className="font-medium">Migration Automation Kit</div>
@@ -427,8 +425,8 @@ export default function Home() {
                     
                     <div className="relative z-10 px-8">
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-3">
-                        {currentPlatformCategory.platforms.map((platform, index) => (
-                          <div key={index} className="bg-gradient-to-br from-white to-blue-50/50 hover:from-blue-50/50 hover:to-cyan-50/50 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-all p-4 h-36 w-full">
+                        {currentPlatforms.map((platform) => (
+                          <div key={platform.name} className="bg-gradient-to-br from-white to-blue-50/50 hover:from-blue-50/50 hover:to-cyan-50/50 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-all p-4 h-36 w-full">
                             <div className="flex items-center justify-center flex-col text-center h-full">
                               <div className="h-20 w-full flex items-center justify-center mb-3">
                                 <div className="h-16 w-40 flex items-center justify-center">

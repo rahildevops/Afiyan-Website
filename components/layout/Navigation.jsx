@@ -86,6 +86,15 @@ export default function Navigation() {
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-100 to-blue-100 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity -z-0"></div>
             </a>
             <div className="dropdown-content">
+              <Link href="/ai-code-generator/" className="dropdown-item">
+                <div className="flex items-center">
+                  <span className="text-lg mr-2">🤖</span>
+                  <div>
+                    <div className="font-medium">AI Code Generator</div>
+                    <div className="text-sm text-gray-500">Accelerate SailPoint Development</div>
+                  </div>
+                </div>
+              </Link>
               <Link href="#consulting" className="dropdown-item">
                 <div className="flex items-center">
                   <span className="text-lg mr-2">🎯</span>
