@@ -457,6 +457,11 @@ export default function Home() {
             <div className="relative z-10">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 max-w-4xl mx-auto">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 hover:bg-white/15 transition-all">
+                  <div className="flex items-center justify-center mb-2">
+                    <svg className="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 20l9-5-9-5-9 5 9 5zm0-10V4m0 6v10" />
+                    </svg>
+                  </div>
                   <h3 className="text-lg font-semibold text-white mb-2">Free Security Review</h3>
                   <p className="text-blue-200 text-sm">Comprehensive analysis of your current identity infrastructure</p>
                 </div>
