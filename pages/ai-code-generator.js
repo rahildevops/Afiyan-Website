@@ -1,15 +1,154 @@
+
 import Head from 'next/head';
-import Script from 'next/script';
+import Navigation from '../components/layout/Navigation';
+import { useEffect } from 'react';
 
 export default function AICodeGenerator() {
+  useEffect(() => {
+    let chartInstance;
+    let Chart;
+    async function loadChart() {
+      Chart = (await import('chart.js/auto')).default;
+      function wrapLabels(label, maxWidth) {
+        if (typeof label !== 'string' || label.length <= maxWidth) {
+          return label;
+        }
+        const words = label.split(' ');
+        let lines = [];
+        let currentLine = '';
+        words.forEach(word => {
+          if ((currentLine + ' ' + word).length > maxWidth) {
+            lines.push(currentLine.trim());
+            currentLine = '';
+          }
+          currentLine += word + ' ';
+        });
+        lines.push(currentLine.trim());
+        return lines;
+      }
+      const tooltipTitleCallback = (tooltipItems) => {
+        const item = tooltipItems[0];
+        let label = item.chart.data.labels[item.dataIndex];
+        if (Array.isArray(label)) {
+          return label.join(' ');
+        } else {
+          return label;
+        }
+      };
+      const sailpointData = {
+        labels: ['Rule Development', 'Template Setup', 'Testing & Debug'].map(l => wrapLabels(l, 12)),
+        datasets: [
+          {
+            label: 'Traditional Method (Hours)',
+            data: [25, 15, 12],
+            backgroundColor: 'rgba(100, 116, 139, 0.8)',
+            borderColor: 'rgba(100, 116, 139, 1)',
+            borderWidth: 1,
+            borderRadius: 8
+          },
+          {
+            label: 'AI-Powered Method (Hours)',
+            data: [8, 6, 4],
+            backgroundColor: 'rgba(6, 182, 212, 0.8)',
+            borderColor: 'rgba(6, 182, 212, 1)',
+            borderWidth: 1,
+            borderRadius: 8
+          }
+        ]
+      };
+      const ctx = document.getElementById('sailpointChart');
+      if (ctx) {
+        // Destroy any existing chart instance on this canvas
+        if (Chart && Chart.getChart && Chart.getChart(ctx)) {
+          Chart.getChart(ctx).destroy();
+        } else if (ctx.chart) {
+          ctx.chart.destroy();
+        }
+        chartInstance = new Chart(ctx, {
+          type: 'bar',
+          data: sailpointData,
+          options: {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'top',
+                labels: {
+                  usePointStyle: true,
+                  font: {
+                    size: 12,
+                    family: 'Inter'
+                  }
+                }
+              },
+              tooltip: {
+                backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                titleColor: '#fff',
+                bodyColor: '#fff',
+                borderColor: 'rgba(6, 182, 212, 0.5)',
+                borderWidth: 1,
+                callbacks: {
+                  title: tooltipTitleCallback
+                }
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: 'Development Time (Hours)',
+                  font: {
+                    size: 12,
+                    family: 'Inter'
+                  }
+                },
+                ticks: {
+                  font: {
+                    size: 11,
+                    family: 'Inter'
+                  }
+                },
+                grid: {
+                  color: 'rgba(148, 163, 184, 0.2)'
+                }
+              },
+              x: {
+                ticks: {
+                  font: {
+                    size: 11,
+                    family: 'Inter'
+                  }
+                },
+                grid: {
+                  display: false
+                }
+              }
+            }
+          }
+        });
+        // Attach chart instance to canvas for future reference
+        ctx.chart = chartInstance;
+      }
+    }
+    loadChart();
+    return () => {
+      if (chartInstance) {
+        chartInstance.destroy();
+      }
+    };
+  }, []);
+
   return (
     <>
       <Head>
         <title>SailPoint AI Code Generator: The Future of IGA Development</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <main className="min-h-screen py-12 text-gray-800 bg-gradient-to-br from-slate-50 via-blue-50/30 to-cyan-50/30">
-        <div className="container mx-auto px-6 space-y-16">
+      <div className="text-gray-800 pt-20" style={{ fontFamily: 'Inter, sans-serif', background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)' }}>
+        <Navigation />
+        <main className="min-h-screen py-12 bg-gradient-to-br from-slate-50 via-blue-50/30 to-cyan-50/30">
+          <div className="container mx-auto px-6 space-y-16">
           {/* Hero Section */}
           <section className="text-center mb-16">
             <div className="max-w-4xl mx-auto">
@@ -220,127 +359,16 @@ export default function AICodeGenerator() {
               </div>
               <div className="feature-card rounded-xl p-6 border border-gray-200">
                 <h4 className="text-xl font-bold gradient-text mb-4 text-center">Development Time Comparison</h4>
-                <div className="chart-container">
-                  <canvas id="sailpointChart"></canvas>
+                <div className="chart-container" style={{ minHeight: 320, height: 320 }}>
+                  <canvas id="sailpointChart" style={{ width: '100%', height: 320 }}></canvas>
                 </div>
               </div>
             </div>
           </section>
         </div>
       </main>
-      <Script src="https://cdn.jsdelivr.net/npm/chart.js"></Script>
-      <Script id="sailpoint-chart-script" strategy="afterInteractive">
-        {`
-        function wrapLabels(label, maxWidth) {
-          if (typeof label !== 'string' || label.length <= maxWidth) {
-            return label;
-          }
-          const words = label.split(' ');
-          let lines = [];
-          let currentLine = '';
-          words.forEach(word => {
-            if ((currentLine + ' ' + word).length > maxWidth) {
-              lines.push(currentLine.trim());
-              currentLine = '';
-            }
-            currentLine += word + ' ';
-          });
-          lines.push(currentLine.trim());
-          return lines;
-        }
-        const tooltipTitleCallback = (tooltipItems) => {
-          const item = tooltipItems[0];
-          let label = item.chart.data.labels[item.dataIndex];
-          if (Array.isArray(label)) {
-            return label.join(' ');
-          } else {
-            return label;
-          }
-        };
-        const sailpointData = {
-          labels: ['Rule Development', 'Template Setup', 'Testing & Debug'].map(l => wrapLabels(l, 12)),
-          datasets: [{
-            label: 'Traditional Method (Hours)',
-            data: [25, 15, 12],
-            backgroundColor: 'rgba(100, 116, 139, 0.8)',
-            borderColor: 'rgba(100, 116, 139, 1)',
-            borderWidth: 1,
-            borderRadius: 8
-          }, {
-            label: 'AI-Powered Method (Hours)',
-            data: [8, 6, 4],
-            backgroundColor: 'rgba(6, 182, 212, 0.8)',
-            borderColor: 'rgba(6, 182, 212, 1)',
-            borderWidth: 1,
-            borderRadius: 8
-          }]
-        };
-        const sailpointChartCtx = document.getElementById('sailpointChart').getContext('2d');
-        new Chart(sailpointChartCtx, {
-          type: 'bar',
-          data: sailpointData,
-          options: {
-            maintainAspectRatio: false,
-            responsive: true,
-            plugins: {
-              legend: {
-                position: 'top',
-                labels: {
-                  usePointStyle: true,
-                  font: {
-                    size: 12,
-                    family: 'Inter'
-                  }
-                }
-              },
-              tooltip: {
-                backgroundColor: 'rgba(15, 23, 42, 0.9)',
-                titleColor: '#fff',
-                bodyColor: '#fff',
-                borderColor: 'rgba(6, 182, 212, 0.5)',
-                borderWidth: 1,
-                callbacks: {
-                  title: tooltipTitleCallback
-                }
-              }
-            },
-            scales: {
-              y: {
-                beginAtZero: true,
-                title: {
-                  display: true,
-                  text: 'Development Time (Hours)',
-                  font: {
-                    size: 12,
-                    family: 'Inter'
-                  }
-                },
-                ticks: {
-                  font: {
-                    size: 11,
-                    family: 'Inter'
-                  }
-                },
-                grid: {
-                  color: 'rgba(148, 163, 184, 0.2)'
-                }
-              },
-              x: {
-                ticks: {
-                  font: {
-                    size: 11,
-                    family: 'Inter'
-                  }
-                },
-                grid: {
-                  display: false
-                }
-              }
-            }
-          }
-        });
-        `}
-      </Script>
-    </>
+      {/* Chart.js is now loaded and rendered via useEffect */}
+    </div>
+  </>
   );
 }
