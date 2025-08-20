@@ -7,9 +7,6 @@ export default function AICodeGenerator() {
       <Head>
         <title>SailPoint AI Code Generator: The Future of IGA Development</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
       </Head>
       <main className="min-h-screen py-12 text-gray-800 bg-gradient-to-br from-slate-50 via-blue-50/30 to-cyan-50/30">
         <div className="container mx-auto px-6 space-y-16">
@@ -28,7 +25,7 @@ export default function AICodeGenerator() {
           {/* Problem Statement Section */}
           <section className="section-card rounded-2xl shadow-xl p-8 md:p-12 mb-16">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">The Developer's Challenge</h2>
+              <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">The Developer&apos;s Challenge</h2>
               <p className="text-gray-600 text-lg max-w-4xl mx-auto leading-relaxed">
                 SailPoint is a powerful platform, but its full potential is unlocked only with expert, efficient implementation. Our solution eliminates manual bottlenecks, reduces errors, and accelerates your time-to-value.
               </p>
