@@ -6,8 +6,8 @@ export default function Navigation() {
     <nav className="bg-gradient-to-r from-white via-blue-50 to-cyan-50 shadow-xl sticky top-0 z-50 backdrop-blur-sm border-b border-cyan-100">
       <div className="container mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
         {/* Company Logo */}
-        <Link href="/" className="text-gray-800 text-xl md:text-2xl font-bold mb-2 md:mb-0 group">
-          <div className="flex items-center space-x-3">
+        <Link href="/" legacyBehavior>
+          <a className="text-gray-800 text-xl md:text-2xl font-bold md:mb-0 group flex items-center space-x-3">
             <Image 
               src="/images/Afiyan_07122023-02.png" 
               alt="AFIYAN IT Logo" 
@@ -15,13 +15,18 @@ export default function Navigation() {
               height={40}
               className="h-8 md:h-10 rounded-lg shadow-lg group-hover:shadow-xl transition-shadow"
             />
-          </div>
+          </a>
         </Link>
         
         {/* Navigation Links */}
-        <div className="flex space-x-6">
-          <Link href="/" className="relative px-4 py-2 text-cyan-600 transition-all font-medium group border-b-2 border-cyan-500">
-            <span className="relative z-10">Home</span>
+  <div className="flex space-x-6 items-center h-12">
+          <Link href="/" legacyBehavior>
+            <a
+              className="relative px-4 pb-0 pt-0 text-cyan-600 transition-all font-medium group flex items-center h-12 leading-none after:absolute after:left-0 after:right-0 after:bottom-0 after:h-[2px] after:bg-cyan-500 after:content-[''] after:rounded after:translate-y-5 after:-mb-2"
+              style={{ lineHeight: '1', marginBottom: '-6px' }}
+            >
+              <span className="relative z-10">Home</span>
+            </a>
           </Link>
           
           <div className="dropdown">

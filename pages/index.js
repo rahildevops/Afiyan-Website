@@ -1,6 +1,7 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 export default function Home() {
   // Services data - exactly from your HTML
@@ -108,23 +109,23 @@ export default function Home() {
   const serviceAutoScrollRef = useRef(null);
   const platformAutoScrollRef = useRef(null);
 
-  const startServiceAutoScroll = () => {
+  const startServiceAutoScroll = useCallback(() => {
     if (serviceAutoScrollRef.current) {
       clearInterval(serviceAutoScrollRef.current);
     }
     serviceAutoScrollRef.current = setInterval(() => {
       setCurrentServiceIndex(prev => (prev + 1) % services.length);
     }, 20000);
-  };
+  }, [services.length]);
 
-  const startPlatformAutoScroll = () => {
+  const startPlatformAutoScroll = useCallback(() => {
     if (platformAutoScrollRef.current) {
       clearInterval(platformAutoScrollRef.current);
     }
     platformAutoScrollRef.current = setInterval(() => {
       setCurrentPlatformIndex(prev => (prev + 1) % platformCategories.length);
     }, 25000);
-  };
+  }, [platformCategories.length]);
 
   const nextService = () => {
     setCurrentServiceIndex(prev => (prev + 1) % services.length);
@@ -149,12 +150,11 @@ export default function Home() {
   useEffect(() => {
     startServiceAutoScroll();
     startPlatformAutoScroll();
-    
     return () => {
       if (serviceAutoScrollRef.current) clearInterval(serviceAutoScrollRef.current);
       if (platformAutoScrollRef.current) clearInterval(platformAutoScrollRef.current);
     };
-  }, []);
+  }, [startServiceAutoScroll, startPlatformAutoScroll]);
 
   const currentService = services[currentServiceIndex];
   const currentPlatformCategory = platformCategories[currentPlatformIndex];
@@ -165,9 +165,7 @@ export default function Home() {
         <title>AFIYAN IT Consulting</title>
         <meta name="description" content="Leading Implementation Partner for CIAM, IAM & API Security Solutions" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  {/* Custom font links moved to pages/_document.js for global usage */}
       </Head>
 
       <div className="text-gray-800 pt-20" style={{ fontFamily: 'Inter, sans-serif', background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)' }}>
@@ -175,23 +173,27 @@ export default function Home() {
         {/* Navigation Bar */}
         <nav className="bg-gradient-to-r from-white via-blue-50 to-cyan-50 shadow-xl sticky top-0 z-50 backdrop-blur-sm border-b border-cyan-100">
           <div className="container mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
-            <a href="/" className="text-gray-800 text-xl md:text-2xl font-bold mb-2 md:mb-0 group">
-              <div className="flex items-center">
-                <Image 
-                  src="/images/Afiyan_07122023-02.png" 
-                  alt="AFIYAN IT Logo" 
-                  width={120} 
-                  height={60}
-                  className="h-12 md:h-16 w-auto object-contain rounded-lg shadow-lg group-hover:shadow-xl transition-shadow"
-                  priority
-                />
-              </div>
-            </a>
+            <Link href="/">
+              <a className="text-gray-800 text-xl md:text-2xl font-bold mb-2 md:mb-0 group">
+                <div className="flex items-center">
+                  <Image 
+                    src="/images/Afiyan_07122023-02.png" 
+                    alt="AFIYAN IT Logo" 
+                    width={120} 
+                    height={60}
+                    className="h-12 md:h-16 w-auto object-contain rounded-lg shadow-lg group-hover:shadow-xl transition-shadow"
+                    priority
+                  />
+                </div>
+              </a>
+            </Link>
             
             <div className="flex space-x-6">
-              <a href="/" className="relative px-4 py-2 text-cyan-600 transition-all font-medium group border-b-2 border-cyan-500">
-                <span className="relative z-10">Home</span>
-              </a>
+              <Link href="/">
+                <a className="relative px-4 py-2 text-cyan-600 transition-all font-medium group border-b-2 border-cyan-500">
+                  <span className="relative z-10">Home</span>
+                </a>
+              </Link>
               
               <div className="dropdown">
                 <a href="#solutions" className="relative px-4 py-2 text-gray-700 hover:text-cyan-600 transition-all font-medium group flex items-center">
@@ -208,7 +210,7 @@ export default function Home() {
                   </a>
                   <a href="#sdks" className="dropdown-item-professional">
                     <span className="text-cyan-600 mr-3">📚</span>
-                    <div className="font-medium">Custom SDK's</div>
+                    <div className="font-medium">Custom SDK&apos;s</div>
                   </a>
                   <a href="#ai-generator" className="dropdown-item-professional">
                     <span className="text-purple-600 mr-3">🤖</span>
@@ -503,6 +505,8 @@ export default function Home() {
 
         <footer className="bg-gray-900 text-white text-center p-4 mt-8">
           <p>&copy; 2024 AFIYAN IT Consulting. All rights reserved.</p>
+          {/* Lint fix: Escaped single quote below */}
+          <p>We value our client&#39;s trust and privacy.</p>
         </footer>
       </div>
     </>
