@@ -7,7 +7,7 @@ export default function Home() {
   // Services data - exactly from your HTML
   const services = useMemo(() => [
     {
-      title: "KKKKKKKKCustomer Identity & Access Management",
+      title: "Customer Identity & Access Management",
       description: "We engineer secure, scalable customer identity platforms with a focus on automation and advanced deployment strategies.",
       features: [
         { name: "Advanced CI/CD Pipelines with Automated Product Deployment" },
