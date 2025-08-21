@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function NavigationAICodeGen() {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -22,22 +24,27 @@ export default function NavigationAICodeGen() {
   return (
     <nav className="bg-gradient-to-r from-white via-blue-50 to-cyan-50 shadow-xl sticky top-0 z-50 backdrop-blur-sm border-b border-cyan-100">
       <div className="container mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
-        <a href="/" className="text-gray-800 text-xl md:text-2xl font-bold mb-2 md:mb-0 group">
-          <div className="flex items-center">
-            <img 
-              src="/images/Afiyan_07122023-02.png" 
-              alt="AFIYAN IT Logo" 
-              width={120} 
-              height={60}
-              className="h-12 md:h-16 w-auto object-contain rounded-lg shadow-lg group-hover:shadow-xl transition-shadow"
-              style={{display: 'block'}}
-            />
-          </div>
-        </a>
-        <div className="flex flex-col md:flex-row w-full md:w-auto space-y-2 md:space-y-0 md:space-x-6 items-center mt-4 md:mt-0 overflow-x-hidden" ref={dropdownRef}>
-          <a href="/" className="relative px-4 py-2 text-cyan-600 transition-all font-medium group border-b-2 border-cyan-500">
-            <span className="relative z-10">Home</span>
+        <Link href="/" legacyBehavior>
+          <a className="text-gray-800 text-xl md:text-2xl font-bold mb-2 md:mb-0 group">
+            <div className="flex items-center">
+              <Image 
+                src="/images/Afiyan_07122023-02.png" 
+                alt="AFIYAN IT Logo" 
+                width={120} 
+                height={60}
+                className="h-12 md:h-16 w-auto object-contain rounded-lg shadow-lg group-hover:shadow-xl transition-shadow"
+                style={{display: 'block'}}
+                priority
+              />
+            </div>
           </a>
+        </Link>
+        <div className="flex flex-col md:flex-row w-full md:w-auto space-y-2 md:space-y-0 md:space-x-6 items-center mt-4 md:mt-0 overflow-x-hidden" ref={dropdownRef}>
+          <Link href="/" legacyBehavior>
+            <a className="relative px-4 py-2 text-cyan-600 transition-all font-medium group border-b-2 border-cyan-500">
+              <span className="relative z-10">Home</span>
+            </a>
+          </Link>
           {/* Solutions Dropdown */}
           <div
             className="dropdown relative"
@@ -68,10 +75,12 @@ export default function NavigationAICodeGen() {
                 <span className="text-cyan-600 mr-3">📚</span>
                 <div className="font-medium">Custom SDK&apos;s</div>
               </a>
-              <a href="/ai-code-generator/" className="dropdown-item-professional">
-                <span className="text-purple-600 mr-3">🤖</span>
-                <div className="font-medium">AI Code Generator</div>
-              </a>
+              <Link href="/ai-code-generator/" legacyBehavior>
+                <a className="dropdown-item-professional">
+                  <span className="text-purple-600 mr-3">🤖</span>
+                  <div className="font-medium">AI Code Generator</div>
+                </a>
+              </Link>
               <a href="#migration" className="dropdown-item-professional">
                 <span className="text-green-600 mr-3">🔄</span>
                 <div className="font-medium">Migration Automation Kit</div>

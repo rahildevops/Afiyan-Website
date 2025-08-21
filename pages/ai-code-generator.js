@@ -2,6 +2,7 @@
 import Head from 'next/head';
 import Navigation from '../components/layout/Navigation';
 import { useEffect } from 'react';
+import Image from 'next/image';
 
 export default function AICodeGenerator() {
   useEffect(() => {
@@ -312,11 +313,11 @@ export default function AICodeGenerator() {
           <p className="text-gray-700 text-lg mb-6">We currently offer AI Code Generators for:</p>
           <div className="flex flex-col sm:flex-row justify-center gap-6 mb-4">
             <div className="flex flex-col items-center bg-white rounded-xl shadow p-4 border border-cyan-100 w-full sm:w-1/2">
-              <img src="/images/SailPoint.svg" alt="SailPoint" className="h-10 mb-2" />
+              <Image src="/images/SailPoint.svg" alt="SailPoint" width={80} height={40} className="h-10 mb-2" />
               <span className="font-semibold text-blue-700">SailPoint</span>
             </div>
             <div className="flex flex-col items-center bg-white rounded-xl shadow p-4 border border-blue-100 w-full sm:w-1/2">
-              <img src="/images/ping.png" alt="ForgeRock" className="h-10 mb-2" />
+              <Image src="/images/ping.png" alt="ForgeRock" width={80} height={40} className="h-10 mb-2" />
               <span className="font-semibold text-cyan-700">ForgeRock</span>
             </div>
           </div>
