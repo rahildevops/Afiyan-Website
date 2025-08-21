@@ -142,7 +142,7 @@ export default function AICodeGenerator() {
   return (
     <>
       <Head>
-        <title>SailPoint AI Code Generator: The Future of IGA Development</title>
+    <title>AI Code Generator: The Future of Intelligent Development</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <div className="text-gray-800 pt-20" style={{ fontFamily: 'Inter, sans-serif', background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)' }}>
@@ -150,222 +150,180 @@ export default function AICodeGenerator() {
         <main className="min-h-screen py-12 bg-gradient-to-br from-slate-50 via-blue-50/30 to-cyan-50/30">
           <div className="container mx-auto px-6 space-y-16">
           {/* Hero Section */}
-          <section className="text-center mb-16">
-            <div className="max-w-4xl mx-auto">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 gradient-text leading-tight">
-                SailPoint AI Code Generator
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                The Future of IGA Development - Accelerate your SailPoint implementations with intelligent automation
-              </p>
+          <section className="text-center mb-3">
+                <div className="max-w-4xl mx-auto flex flex-col items-center">
+                  <h1 className="text-4xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 bg-clip-text text-transparent drop-shadow-xl tracking-tight">
+                    AI Code Generator
+                  </h1>
+                  <div className="inline-block px-6 py-2 mb-6 rounded-full bg-gradient-to-r from-cyan-100 via-blue-100 to-indigo-100 shadow-md">
+                    <span className="text-lg md:text-2xl font-semibold text-cyan-700 tracking-wide">
+                      The Future of Development
+                    </span>
+                    <span className="mx-2 text-gray-400">|</span>
+                    <span className="text-base md:text-lg text-gray-700 font-medium">Accelerate your implementations with intelligent automation</span>
+                  </div>
             </div>
           </section>
 
           {/* Problem Statement Section */}
-          <section className="section-card rounded-2xl shadow-xl p-8 md:p-12 mb-16">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">The Developer&apos;s Challenge</h2>
-              <p className="text-gray-600 text-lg max-w-4xl mx-auto leading-relaxed">
-                SailPoint is a powerful platform, but its full potential is unlocked only with expert, efficient implementation. Our solution eliminates manual bottlenecks, reduces errors, and accelerates your time-to-value.
-              </p>
+          <section className="section-card rounded-2xl shadow-xl p-8 md:p-12 mb-16 bg-gradient-to-br from-blue-50 via-cyan-50 to-white">
+            {/* ...existing code... */}
+            <div className="w-full mx-auto mb-8 mt-0 rounded-3xl bg-gradient-to-br from-blue-50 via-cyan-50 to-white shadow-[0_8px_32px_0_rgba(31,41,55,0.10)] p-3 md:p-6">
+              <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
+                {/* Left: Title and Text */}
+                <div className="flex-1 min-w-[220px]">
+                  <div className="inline-block px-8 py-4 rounded-full bg-gradient-to-r from-blue-200 via-cyan-200 to-blue-100 shadow-lg mb-4">
+                    <span className="text-lg md:text-2xl font-bold text-blue-800 tracking-wide">Current Pain</span>
+                  </div>
+                  <p className="mt-2 text-left text-gray-700 text-base md:text-lg max-w-md">
+                    Critical challenges slow growth and impact results. Here’s what holds teams back:
+                  </p>
+                </div>
+                {/* Right: Stat Cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full md:w-auto">
+                  <div className="flex items-center bg-white/70 rounded-2xl px-8 py-4 shadow-lg border border-blue-100 min-w-[102px] backdrop-blur-md relative overflow-hidden">
+                    <div className="absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b from-cyan-400 via-blue-400 to-indigo-400 rounded-l-2xl"></div>
+                    <span className="text-blue-700 text-2xl font-medium tracking-wide mr-3 z-10">2x</span>
+                    <span className="text-slate-700 text-sm font-medium z-10">Increase in project cost overruns</span>
+                  </div>
+                  <div className="flex items-center bg-white/70 rounded-2xl px-8 py-4 shadow-lg border border-blue-100 min-w-[220px] backdrop-blur-md relative overflow-hidden">
+                    <div className="absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b from-cyan-400 via-blue-400 to-indigo-400 rounded-l-2xl"></div>
+                    <span className="text-blue-700 text-2xl font-medium tracking-wide mr-3 z-10">30%</span>
+                    <span className="text-slate-700 text-sm font-medium z-10">Drop in client budgets for new projects</span>
+                  </div>
+                  <div className="flex items-center bg-white/70 rounded-2xl px-8 py-4 shadow-lg border border-blue-100 min-w-[220px] backdrop-blur-md relative overflow-hidden">
+                    <div className="absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b from-cyan-400 via-blue-400 to-indigo-400 rounded-l-2xl"></div>
+                    <span className="text-blue-700 text-2xl font-medium tracking-wide mr-3 z-10">75%</span>
+                    <span className="text-slate-700 text-sm font-medium z-10">Say innovation slows</span>
+                  </div>
+                  <div className="flex items-center bg-white/70 rounded-2xl px-8 py-4 shadow-lg border border-blue-100 min-w-[220px] backdrop-blur-md relative overflow-hidden">
+                    <div className="absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b from-cyan-400 via-blue-400 to-indigo-400 rounded-l-2xl"></div>
+                    <span className="text-blue-700 text-2xl font-medium tracking-wide mr-3 z-10">68%</span>
+                    <span className="text-slate-700 text-sm font-medium z-10">Struggle to find skilled talent</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="feature-card rounded-xl p-8 text-center border border-gray-200/50 hover:border-blue-300/50">
-                <div className="text-5xl font-bold gradient-text mb-4">80%</div>
-                <p className="text-gray-700 font-medium">Of development time spent on repetitive, boilerplate code</p>
-              </div>
-              <div className="feature-card rounded-xl p-8 text-center border border-gray-200/50 hover:border-blue-300/50">
-                <div className="text-5xl font-bold gradient-text mb-4">45%</div>
-                <p className="text-gray-700 font-medium">Increase in project timelines due to coding errors and debugging</p>
-              </div>
-              <div className="feature-card rounded-xl p-8 text-center border border-gray-200/50 hover:border-blue-300/50">
-                <div className="text-5xl font-bold gradient-text mb-4">100s</div>
-                <p className="text-gray-700 font-medium">Of documentation pages developers must constantly reference</p>
-              </div>
-            </div>
+            {/* Cards removed for a cleaner, more focused section */}
           </section>
 
           {/* Workflow Comparison Section */}
-          <section className="section-card rounded-2xl shadow-xl p-6 md:p-8 mb-16">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl md:text-3xl font-bold gradient-text mb-4">Transform Your Development Workflow</h3>
-              <p className="text-gray-600 max-w-2xl mx-auto">Move from time-consuming manual processes to intelligent automation</p>
-            </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Traditional Workflow Column */}
-              <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-6 border border-slate-200">
-                <div className="text-center mb-6">
-                  <div className="bg-gradient-to-r from-slate-600 to-gray-600 text-white px-4 py-2 rounded-full font-medium text-sm inline-block">
-                    Traditional Manual Process
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="bg-white rounded-xl p-4 border border-gray-200">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-slate-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="text-white font-bold text-xs">1</span>
-                      </div>
-                      <div>
-                        <h5 className="font-semibold text-gray-900 text-sm">Requirements Analysis</h5>
-                        <p className="text-gray-600 text-xs">Manual interpretation and planning</p>
-                        <span className="text-xs text-slate-600 bg-slate-100 px-2 py-1 rounded-full">2-4 hrs</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="bg-white rounded-xl p-4 border border-gray-200">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="text-white font-bold text-xs">2</span>
-                      </div>
-                      <div>
-                        <h5 className="font-semibold text-gray-900 text-sm">Documentation Research</h5>
-                        <p className="text-gray-600 text-xs">API documentation and guides</p>
-                        <span className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded-full">3-6 hrs</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="bg-white rounded-xl p-4 border border-gray-200">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="text-white font-bold text-xs">3</span>
-                      </div>
-                      <div>
-                        <h5 className="font-semibold text-gray-900 text-sm">Manual Development</h5>
-                        <p className="text-gray-600 text-xs">Write and implement code</p>
-                        <span className="text-xs text-indigo-600 bg-indigo-100 px-2 py-1 rounded-full">8-16 hrs</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="bg-white rounded-xl p-4 border border-gray-200">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-slate-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="text-white font-bold text-xs">4</span>
-                      </div>
-                      <div>
-                        <h5 className="font-semibold text-gray-900 text-sm">Testing & Debugging</h5>
-                        <p className="text-gray-600 text-xs">Fix errors and validate</p>
-                        <span className="text-xs text-slate-600 bg-slate-100 px-2 py-1 rounded-full">4-8 hrs</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-6 text-center">
-                  <div className="bg-slate-100 text-slate-700 px-4 py-2 rounded-xl font-semibold text-sm">
-                    Total: 17-34 Hours
-                  </div>
-                </div>
-              </div>
-              {/* Automated Workflow Column */}
-              <div className="bg-gradient-to-br from-cyan-50 to-blue-100 rounded-2xl p-6 border border-cyan-200">
-                <div className="text-center mb-6">
-                  <div className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-4 py-2 rounded-full font-medium text-sm inline-block">
-                    AI-Powered Automation
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="bg-white rounded-xl p-4 border border-cyan-200">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="text-white font-bold text-xs">1</span>
-                      </div>
-                      <div>
-                        <h5 className="font-semibold text-gray-900 text-sm">AI Code Generation</h5>
-                        <p className="text-gray-600 text-xs">Automated code creation</p>
-                        <span className="text-xs text-cyan-600 bg-cyan-100 px-2 py-1 rounded-full">1-2 hrs</span>
-                      </div>
-                    </div>
-                  </div>
-                  {/* ...rest of the steps, see HTML for details... */}
-                </div>
-                <div className="mt-6 text-center">
-                  <div className="bg-cyan-100 text-cyan-700 px-4 py-2 rounded-xl font-semibold text-sm">
-                    Total: 8-15 Hours
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+            {/* Workflow Comparison Section removed as requested */}
 
-          {/* Benefits Section */}
-          <div className="text-center mt-8">
-            <div className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-3 rounded-2xl font-bold text-lg shadow-lg inline-block">
-              40-50% Time Reduction
-            </div>
-            <div className="grid grid-cols-3 gap-4 mt-6 max-w-2xl mx-auto">
-              <div className="text-center p-3 bg-white/50 rounded-lg border border-blue-100">
-                <div className="text-xl font-bold text-blue-600">75%</div>
-                <div className="text-xs text-gray-600">Less Errors</div>
-              </div>
-              <div className="text-center p-3 bg-white/50 rounded-lg border border-cyan-100">
-                <div className="text-xl font-bold text-cyan-600">45%</div>
-                <div className="text-xs text-gray-600">Cost Savings</div>
-              </div>
-              <div className="text-center p-3 bg-white/50 rounded-lg border border-indigo-100">
-                <div className="text-xl font-bold text-indigo-600">2-3x</div>
-                <div className="text-xs text-gray-600">Faster</div>
-              </div>
-            </div>
-          </div>
+
 
           {/* SailPoint Focus Section */}
           <section className="section-card rounded-2xl shadow-xl p-8 md:p-12 mb-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h3 className="text-3xl font-bold gradient-text mb-6">Streamlining SailPoint Development</h3>
-                <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  Our tool provides targeted solutions to common SailPoint pain points, significantly reducing time spent on manual coding and debugging while delivering projects faster with greater confidence.
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-start space-x-3 p-3 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-200">
-                    <div className="w-6 h-6 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
-                      </svg>
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-gray-800">Accelerated Development</h4>
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        Reduce development time from weeks to days with automated code generation and intelligent templates.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3 p-3 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-200">
-                    <div className="w-6 h-6 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
-                      </svg>
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-gray-800">Enhanced Accuracy</h4>
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        Minimize errors and rework with AI-driven code suggestions and real-time validation.
-                      </p>
+
+                {/* Section Heading */}
+                <h3 className="text-3xl md:text-4xl font-extrabold mb-8 bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 bg-clip-text text-transparent drop-shadow-lg tracking-tight text-left">
+                  Key Automation Features
+                </h3>
+                {/* Vertical Timeline Pattern for Features */}
+                <div className="relative border-l-2 border-cyan-200 ml-6 flex flex-col gap-8">
+                  {/* Automated Installation */}
+                  <div className="flex items-start gap-4">
+                    <span className="absolute -left-3.5 mt-1 w-7 h-7 rounded-full bg-cyan-500 flex items-center justify-center shadow-md">
+                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 6v6l4 2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </span>
+                    <div className="pl-6">
+                      <div className="font-semibold text-gray-800 text-base">Automated Installation</div>
+                      <div className="text-gray-600 text-xs">Set up your environment in minutes with guided, automated installation steps—no manual configuration required.</div>
                     </div>
                   </div>
-                  <div className="flex items-start space-x-3 p-3 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border border-blue-200">
-                    <div className="w-6 h-6 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
-                      </svg>
+                  {/* Accelerated Development */}
+                  <div className="flex items-start gap-4">
+                    <span className="absolute -left-3.5 mt-1 w-7 h-7 rounded-full bg-blue-500 flex items-center justify-center shadow-md">
+                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m4 0h-1v-4h-1" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </span>
+                    <div className="pl-6">
+                      <div className="font-semibold text-gray-800 text-base">Accelerated Development</div>
+                      <div className="text-gray-600 text-xs">Reduce development time from weeks to days with automated code generation and intelligent templates.</div>
                     </div>
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-gray-800">Seamless Integration</h4>
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        Effortlessly integrate with existing SailPoint environments and third-party systems.
-                      </p>
+                  </div>
+                  {/* Enhanced Accuracy */}
+                  <div className="flex items-start gap-4">
+                    <span className="absolute -left-3.5 mt-1 w-7 h-7 rounded-full bg-emerald-500 flex items-center justify-center shadow-md">
+                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </span>
+                    <div className="pl-6">
+                      <div className="font-semibold text-gray-800 text-base">Enhanced Accuracy</div>
+                      <div className="text-gray-600 text-xs">Minimize errors and rework with AI-driven code suggestions and real-time validation.</div>
+                    </div>
+                  </div>
+                  {/* Seamless Integration */}
+                  <div className="flex items-start gap-4">
+                    <span className="absolute -left-3.5 mt-1 w-7 h-7 rounded-full bg-indigo-500 flex items-center justify-center shadow-md">
+                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </span>
+                    <div className="pl-6">
+                      <div className="font-semibold text-gray-800 text-base">Seamless Integration</div>
+                      <div className="text-gray-600 text-xs">Effortlessly integrate with existing environments and third-party systems.</div>
+                    </div>
+                  </div>
+                  {/* Automated Deployment */}
+                  <div className="flex items-start gap-4">
+                    <span className="absolute -left-3.5 mt-1 w-7 h-7 rounded-full bg-pink-500 flex items-center justify-center shadow-md">
+                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 19V6m0 0l-7 7m7-7l7 7" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </span>
+                    <div className="pl-6">
+                      <div className="font-semibold text-gray-800 text-base">Automated Deployment</div>
+                      <div className="text-gray-600 text-xs">Deploy your solutions with a single click—automated, reliable, and repeatable deployments every time.</div>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="feature-card rounded-xl p-6 border border-gray-200">
-                <h4 className="text-xl font-bold gradient-text mb-4 text-center">Development Time Comparison</h4>
+                <h4 className="text-2xl md:text-3xl font-extrabold mb-6 bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 bg-clip-text text-transparent drop-shadow-lg text-center">Development Time Comparison</h4>
                 <div className="chart-container" style={{ minHeight: 320, height: 320 }}>
                   <canvas id="sailpointChart" style={{ width: '100%', height: 320 }}></canvas>
+                </div>
+                {/* Stat Cards moved below the graph */}
+                <div className="mt-8 text-center">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2 max-w-3xl mx-auto">
+                    <div className="text-center p-3 bg-white/50 rounded-lg border border-cyan-200">
+                      <div className="text-xl font-bold text-cyan-700">40-50%</div>
+                      <div className="text-xs text-gray-600">Time Reduction</div>
+                    </div>
+                    <div className="text-center p-3 bg-white/50 rounded-lg border border-blue-100">
+                      <div className="text-xl font-bold text-blue-600">75%</div>
+                      <div className="text-xs text-gray-600">Less Errors</div>
+                    </div>
+                    <div className="text-center p-3 bg-white/50 rounded-lg border border-cyan-100">
+                      <div className="text-xl font-bold text-cyan-600">45%</div>
+                      <div className="text-xs text-gray-600">Cost Savings</div>
+                    </div>
+                    <div className="text-center p-3 bg-white/50 rounded-lg border border-indigo-100">
+                      <div className="text-xl font-bold text-indigo-600">2-3x</div>
+                      <div className="text-xs text-gray-600">Faster</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </section>
         </div>
+
+        {/* Supported Platforms Section */}
+        <section className="mt-12 mb-20 max-w-3xl mx-auto rounded-2xl bg-gradient-to-r from-cyan-50 via-blue-50 to-white shadow-lg p-8 text-center">
+          <h3 className="text-2xl md:text-3xl font-extrabold mb-4 bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 bg-clip-text text-transparent drop-shadow-lg">AI Code Generator Platforms</h3>
+          <p className="text-gray-700 text-lg mb-6">We currently offer AI Code Generators for:</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-6 mb-4">
+            <div className="flex flex-col items-center bg-white rounded-xl shadow p-4 border border-cyan-100 w-full sm:w-1/2">
+              <img src="/images/SailPoint.svg" alt="SailPoint" className="h-10 mb-2" />
+              <span className="font-semibold text-blue-700">SailPoint</span>
+            </div>
+            <div className="flex flex-col items-center bg-white rounded-xl shadow p-4 border border-blue-100 w-full sm:w-1/2">
+              <img src="/images/ping.png" alt="ForgeRock" className="h-10 mb-2" />
+              <span className="font-semibold text-cyan-700">ForgeRock</span>
+            </div>
+          </div>
+          <div className="mt-4 text-base text-gray-600">
+            More platforms coming soon!
+          </div>
+        </section>
       </main>
       {/* Chart.js is now loaded and rendered via useEffect */}
     </div>
