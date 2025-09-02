@@ -336,13 +336,15 @@ export default function Home() {
                   <p className="text-gray-600 text-sm text-center">Accelerate your identity solution deployment with our proven frameworks and automation tools.</p>
                 </div>
                 <div className="group relative bg-gradient-to-br from-white/95 via-blue-50/30 to-cyan-50/40 rounded-xl shadow-xl hover:shadow-2xl border border-gray-300/60 p-6 transform transition-all duration-500 hover:scale-[1.01] cursor-pointer overflow-hidden flex flex-col items-center">
-                  <h3 className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-center tracking-tight mb-2 uppercase drop-shadow-md">Custom SDK's</h3>
+                  <h3 className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-center tracking-tight mb-2 uppercase drop-shadow-md">Custom SDK&apos;s</h3>
                   <p className="text-gray-600 text-sm text-center">Integrate seamlessly with our custom SDKs tailored for your business needs.</p>
                 </div>
                 <div className="group relative bg-gradient-to-br from-white/95 via-blue-50/30 to-cyan-50/40 rounded-xl shadow-xl hover:shadow-2xl border border-gray-300/60 p-6 transform transition-all duration-500 hover:scale-[1.01] cursor-pointer overflow-hidden flex flex-col items-center">
-                  <a href="/ai-code-generator/" className="focus:outline-none">
-                    <h3 className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-center tracking-tight mb-2 uppercase drop-shadow-md hover:underline">AI Code Generator</h3>
-                  </a>
+                  <Link href="/ai-code-generator/" legacyBehavior>
+                    <a className="focus:outline-none">
+                      <h3 className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-center tracking-tight mb-2 uppercase drop-shadow-md hover:underline">AI Code Generator</h3>
+                    </a>
+                  </Link>
                   <p className="text-gray-600 text-sm text-center">Leverage AI to generate secure, efficient code for your identity projects.</p>
                 </div>
                 <div className="group relative bg-gradient-to-br from-white/95 via-blue-50/30 to-cyan-50/40 rounded-xl shadow-xl hover:shadow-2xl border border-gray-300/60 p-6 transform transition-all duration-500 hover:scale-[1.01] cursor-pointer overflow-hidden flex flex-col items-center">
