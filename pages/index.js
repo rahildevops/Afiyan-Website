@@ -337,7 +337,9 @@ export default function Home() {
                 </div>
                 <div className="group relative bg-gradient-to-br from-white/95 via-blue-50/30 to-cyan-50/40 rounded-xl shadow-xl hover:shadow-2xl border border-gray-300/60 p-6 transform transition-all duration-500 hover:scale-[1.01] cursor-pointer overflow-hidden flex flex-col items-center">
                   <h3 className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-center tracking-tight mb-2 uppercase drop-shadow-md">Custom SDK&apos;s</h3>
-                  <p className="text-gray-600 text-sm text-center">Integrate seamlessly with our custom SDKs tailored for your business needs.</p>
+                  <Link href="/custom-sdks/" legacyBehavior>
+                    <a className="text-gray-600 text-sm text-center hover:underline block">Integrate seamlessly with our custom SDKs tailored for your business needs.</a>
+                  </Link>
                 </div>
                 <div className="group relative bg-gradient-to-br from-white/95 via-blue-50/30 to-cyan-50/40 rounded-xl shadow-xl hover:shadow-2xl border border-gray-300/60 p-6 transform transition-all duration-500 hover:scale-[1.01] cursor-pointer overflow-hidden flex flex-col items-center">
                   <Link href="/ai-code-generator/" legacyBehavior>
