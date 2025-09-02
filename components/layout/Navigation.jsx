@@ -38,10 +38,12 @@ export default function Navigation() {
                 <span className="text-blue-600 mr-3">⚡</span>
                 <div className="font-medium">Deployment Accelerator</div>
               </a>
-              <a href="#sdks" className="dropdown-item-professional">
-                <span className="text-cyan-600 mr-3">📚</span>
-                <div className="font-medium">Custom SDK&apos;s</div>
-              </a>
+              <Link href="/custom-sdks" legacyBehavior>
+                <a className="dropdown-item-professional" tabIndex={0}>
+                  <span className="text-cyan-600 mr-3">📚</span>
+                  <div className="font-medium">Custom SDK&apos;s</div>
+                </a>
+              </Link>
               <Link href="/ai-code-generator/" legacyBehavior>
                 <a className="dropdown-item-professional">
                   <span className="text-purple-600 mr-3">🤖</span>

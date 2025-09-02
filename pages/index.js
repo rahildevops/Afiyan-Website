@@ -204,10 +204,12 @@ export default function Home() {
                     <span className="text-blue-600 mr-3">⚡</span>
                     <div className="font-medium">Deployment Accelerator</div>
                   </a>
-                  <a href="#sdks" className="dropdown-item-professional">
-                    <span className="text-cyan-600 mr-3">📚</span>
-                    <div className="font-medium">Custom SDK&apos;s</div>
-                  </a>
+                  <Link href="/custom-sdks" legacyBehavior>
+                    <a className="dropdown-item-professional" tabIndex={0}>
+                      <span className="text-cyan-600 mr-3">📚</span>
+                      <div className="font-medium">Custom SDK&apos;s</div>
+                    </a>
+                  </Link>
                   <Link href="/ai-code-generator/" legacyBehavior>
                     <a className="dropdown-item-professional">
                       <span className="text-purple-600 mr-3">🤖</span>
@@ -318,6 +320,36 @@ export default function Home() {
             <div className="bg-gradient-to-br from-white to-emerald-50 rounded-xl shadow-lg p-6 hover:shadow-xl transition-all border border-emerald-200 group">
               <p className="text-4xl font-extrabold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent group-hover:scale-110 transition-transform">100%</p>
               <p className="mt-2 text-sm font-medium text-gray-700">Client Satisfaction</p>
+            </div>
+          </section>
+
+          {/* Our Solutions Section */}
+          <section id="solutions" className="py-6 px-4 bg-gradient-to-br from-white via-blue-50/40 to-cyan-50/50 rounded-2xl shadow-xl mb-10 border border-gray-300/50">
+            <div className="container mx-auto px-2">
+              <div className="text-center mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-800 tracking-tight mb-3">Our Solutions</h2>
+                <div className="w-20 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full mb-3"></div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4">
+                <div className="group relative bg-gradient-to-br from-white/95 via-blue-50/30 to-cyan-50/40 rounded-xl shadow-xl hover:shadow-2xl border border-gray-300/60 p-6 transform transition-all duration-500 hover:scale-[1.01] cursor-pointer overflow-hidden flex flex-col items-center">
+                  <h3 className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-center tracking-tight mb-2 uppercase drop-shadow-md">Deployment Accelerator</h3>
+                  <p className="text-gray-600 text-sm text-center">Accelerate your identity solution deployment with our proven frameworks and automation tools.</p>
+                </div>
+                <div className="group relative bg-gradient-to-br from-white/95 via-blue-50/30 to-cyan-50/40 rounded-xl shadow-xl hover:shadow-2xl border border-gray-300/60 p-6 transform transition-all duration-500 hover:scale-[1.01] cursor-pointer overflow-hidden flex flex-col items-center">
+                  <h3 className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-center tracking-tight mb-2 uppercase drop-shadow-md">Custom SDK's</h3>
+                  <p className="text-gray-600 text-sm text-center">Integrate seamlessly with our custom SDKs tailored for your business needs.</p>
+                </div>
+                <div className="group relative bg-gradient-to-br from-white/95 via-blue-50/30 to-cyan-50/40 rounded-xl shadow-xl hover:shadow-2xl border border-gray-300/60 p-6 transform transition-all duration-500 hover:scale-[1.01] cursor-pointer overflow-hidden flex flex-col items-center">
+                  <a href="/ai-code-generator/" className="focus:outline-none">
+                    <h3 className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-center tracking-tight mb-2 uppercase drop-shadow-md hover:underline">AI Code Generator</h3>
+                  </a>
+                  <p className="text-gray-600 text-sm text-center">Leverage AI to generate secure, efficient code for your identity projects.</p>
+                </div>
+                <div className="group relative bg-gradient-to-br from-white/95 via-blue-50/30 to-cyan-50/40 rounded-xl shadow-xl hover:shadow-2xl border border-gray-300/60 p-6 transform transition-all duration-500 hover:scale-[1.01] cursor-pointer overflow-hidden flex flex-col items-center">
+                  <h3 className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 text-center tracking-tight mb-2 uppercase drop-shadow-md">Migration Automation Kit</h3>
+                  <p className="text-gray-600 text-sm text-center">Automate and simplify migration from legacy systems with our comprehensive toolkit.</p>
+                </div>
+              </div>
             </div>
           </section>
 
